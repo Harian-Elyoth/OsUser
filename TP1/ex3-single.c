@@ -11,15 +11,13 @@ int main(int argc, char const *argv[]) {
   char *argv1[6];
   const char *fichier = argv[1];
   const char *mod = "Modified-";
-
-  printf("Fichier : %s\n", fichier);
   argv1[0] = "convert";
   argv1[1] = fichier;
   argv1[2] = "-radial-blur";
   argv1[3] = "10";
   int l = strlen(fichier) + strlen(mod);
   char *NouveauNomFichier = malloc(sizeof(char)*l); 
-  printf("NouveauNom1 : %s\n", mod);
+
   for(int i = 0 ; i < l ; i++){
     if (i < strlen(mod)){
       NouveauNomFichier[i] = mod[i];
@@ -27,7 +25,6 @@ int main(int argc, char const *argv[]) {
     else
       NouveauNomFichier[i] = fichier[i-strlen(mod)];  
   }
-  printf("NouveauNom2 : %s\n", NouveauNomFichier);
 
   argv1[4] = NouveauNomFichier;
   argv1[5] = NULL;
